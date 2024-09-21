@@ -1,0 +1,50 @@
+<main class="xl:w-[1200px] lg:px-4 mx-auto py-6">
+  <div class="flex justify-between items-center">
+    <!-- left -->
+    <div class="flex items-center gap-2">
+      <h1 class="font-medium text-xl">Order Book</h1>
+      -
+      <p class="text-gray-500">BTC/USDT</p>
+    </div>
+    <!-- left -->
+
+    <!-- right -->
+    <div class="">
+      <div class="flex gap-5">
+        <div>
+          <p class="text-sm text-gray-400">Depth</p>
+          <div class="pt-2">
+            <select [(ngModel)]="depth" class="py-2 px-3 border border-gray-300 rounded-lg" name="depth" id="depth">
+              <option value="15">15</option>
+              <option value="20">20</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <p class="text-sm text-gray-400">Group</p>
+          <div class="pt-2">
+            <select class="py-2 px-3 border border-gray-300 rounded-lg" name="group" id="group">
+              <option value="2">2 decimals</option>
+              <option value="2">3 decimals</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- right -->
+  </div>
+
+  <div class="grid grid-cols-2 gap-5">
+    <!-- buy -->
+    <section>
+      <app-buy [depth]="depth"></app-buy>
+    </section>
+    <!-- buy -->
+
+    <!-- sell -->
+    <section>
+      <app-sell [depth]="depth"></app-sell>
+    </section>
+    <!-- sell -->
+  </div>
+</main>

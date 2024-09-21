@@ -1,0 +1,23 @@
+<div>
+    <div class="grid grid-cols-5 gap-2 px-4 py-2 text-sm text-gray-500 font-medium">
+        <p>Side</p>
+        <p>Price (USDT)</p>
+        <p>Amout (BTC)</p>
+        <p>Total (USDT)</p>
+        <p class="text-right">Sum (USDT)</p>
+    </div>
+
+    <!-- row -->
+    <div class="relative" *ngFor="let _ask of asks; let i = index">
+        <div class="absolute top-0 right-0 bg-red-200 h-full w-full"
+            [style.width]="(_ask.price * _ask.quantity * 100 / getMaxTotal()) + '%'"></div>
+        <div class="grid grid-cols-5 gap-2 px-4 text-sm text-gray-600  py-2 relative">
+            <p class="font-medium text-red-500">Sell {{i +1}}</p>
+            <p>{{_ask.price | number : '3.2-2'}}</p>
+            <p>{{_ask.quantity | number : '3.2-2'}}</p>
+            <p>{{ _ask.price * _ask.quantity | number : '3.2-2' }}</p>
+            <p>{{(_ask.price * _ask.quantity * 100 ) + '%'}}</p>
+        </div>
+    </div>
+    <!-- row -->
+</div>
